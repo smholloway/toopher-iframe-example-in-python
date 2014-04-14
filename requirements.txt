@@ -1,0 +1,2 @@
+flask
+toopher==git+git://github.com/toopher/toopher-python.git@develop --upgrade
