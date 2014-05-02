@@ -14,7 +14,7 @@ Install the requirements (Toopher v1.1.0+ and Flask)
     pip install -r requirements.txt
 
 Set a TOOPHER_CONSUMER_KEY and TOOPHER_CONSUMER_SECRET (obtained from
-the [Toopher Dev site](https://dev.toopher.com/)
+the [Toopher Dev site](https://dev.toopher.com/)).
 
     export TOOPHER_CONSUMER_KEY=xxx
     export TOOPHER_CONSUMER_SECRET=xxx
