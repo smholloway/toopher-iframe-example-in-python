@@ -8,7 +8,7 @@ Clone the repo
 
     git clone git@github.com:smholloway/toopher-iframe-example-in-python.git
 
-Install the requirements (Toopher v1.1.0+ and Flask)
+Install the requirements ([Toopher v1.1.0+](https://github.com/toopher/toopher-python) and [Flask](http://flask.pocoo.org/))
 
     # make a virtual environment, if you're into that sort of thing
     pip install -r requirements.txt
