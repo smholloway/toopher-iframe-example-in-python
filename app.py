@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, session
-import random, string
+import random, string, os
 import toopher
 
 
@@ -8,10 +8,12 @@ app.config['SECRET_KEY'] = 'F34TF$($e34D';
 
 def get_toopher_iframe_api():
     try:
-        #key = os.environ.get("TOOPHER_CONSUMER_KEY")
-        #secret = os.environ.get("TOOPHER_CONSUMER_SECRET")
-        key = secret = "seth"
-        api = toopher.ToopherIframe(key, secret, "http://127.0.0.1:8080/v1")
+        url = os.environ.get("TOOPHER_API_URL")
+        if not url:
+            url = "https://api.toopher.com/v1"
+        key = os.environ.get("TOOPHER_CONSUMER_KEY")
+        secret = os.environ.get("TOOPHER_CONSUMER_SECRET")
+        api = toopher.ToopherIframe(key, secret, url)
         return api
     except Exception as e:
         print "There was a problem creating the Toopher API {}".format(e)
