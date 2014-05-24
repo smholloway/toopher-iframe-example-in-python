@@ -47,7 +47,7 @@ def index():
             validated_data = api.validate(request.args, request_token)
             if 'error_code' in validated_data:
                 print "authentication failed {}".format(validated_data.get('error_message'))
-                return
+                return render_template('auth.html', status=validated_data.get('error_message'))
 
             # signature is valid, and no api errors.  check authentication result
             auth_pending = validated_data.get('pending', 'false').lower() == 'true'
@@ -62,8 +62,9 @@ def index():
             return render_template('auth.html', status=authentication_result)
         except toopher.SignatureValidationError as e:
             print "Something went wrong with the ToopherIframe: {}".format(e)
+            return render_template('auth.html', status=e.message)
     else:
-        # serve up the auth iframe to start
+        # serve up the iframe to start
         request_token = ''.join(random.choice(string.lowercase + string.digits) for i in range(15))
         session['ToopherRequestToken'] = request_token
         auth_iframe_url = api.auth_uri(username, reset_email, action, automation_allowed, challenge_required, request_token, requester_metadata, ttl);
