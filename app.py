@@ -19,8 +19,8 @@ def get_toopher_iframe_api():
         print "There was a problem creating the Toopher API {}".format(e)
         return None
 
-@app.route('/all-in-one', methods=['GET', 'POST'])
-def index_all_in_one():
+@app.route('/', methods=['GET', 'POST'])
+def index():
     if request.method == "POST":
         mutable_dict = {}
         for key in request.form.keys():
@@ -69,8 +69,8 @@ def index_all_in_one():
         auth_iframe_url = api.auth_uri(username, reset_email, action, automation_allowed, challenge_required, request_token, requester_metadata, ttl);
         return render_template('index.html', iframe_src=auth_iframe_url, postback_url=postback_url)
 
-@app.route('/', methods=['GET', 'POST'])
-def index():
+@app.route('/separate', methods=['GET', 'POST'])
+def index_separate_iframes():
     if request.method == "POST":
         mutable_dict = {}
         for key in request.form.keys():
