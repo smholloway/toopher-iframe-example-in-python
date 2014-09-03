@@ -23,5 +23,13 @@ Run the app
 
     python app.py
 
+Fire up a browser and navigate to the site
+
+>[http://localhost:5000/](http://localhost:5000/)
+
+You should see a pairing screen
+
+![Imgur](http://i.imgur.com/FrtpH4D.png)
+
 Enjoy!
 
